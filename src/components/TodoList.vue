@@ -1,8 +1,8 @@
 <template>
     <div>
         <ul>
-            <li v-for="(task, index) in tasksTodo" :key="index">
-                <TodoItem :task="task"  />
+            <li v-for="task in tasksTodo" :key="task.id">
+                <TodoItem :task="task.task"  />
             </li>            
         </ul>
     </div>

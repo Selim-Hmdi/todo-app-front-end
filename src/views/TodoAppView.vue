@@ -6,8 +6,9 @@
 </template>
  
 <script>
-import TodoInput from '../components/TodoInput.vue';
-import TodoList from '../components/TodoList.vue';
+import TodoInput from '../components/TodoInput.vue'
+import TodoList from '../components/TodoList.vue'
+import TodoTask from '../models/TodoTask.js'
 
 export default {
     components: {
