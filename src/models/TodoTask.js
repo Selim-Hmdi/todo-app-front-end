@@ -5,19 +5,4 @@ export default class TodoTask {
         this.task = task
     }
 
-    getTask() {
-        return this.task
-    }
-
-    setTask(newTask) {
-        this.task = newTask
-    }
-
-    getId() {
-        return this.id
-    }
-
-    setId(newId) {
-        this.id = newId
-    }
 }

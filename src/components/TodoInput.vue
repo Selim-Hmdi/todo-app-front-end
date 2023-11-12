@@ -1,7 +1,7 @@
 <template>
     <div>
-        <input class="task-todo-input" v-model="taskTodoInput" type="text" name="task-todo-input" id="todo-input">
-        <button class="add-button" @click="addTask">Add a task</button>
+        <input class="task-todo-input" :style="inputStyle" v-model="taskTodoInput" type="text" name="task-todo-input" id="todo-input">
+        <button class="add-button" :style="btnStyle" @click="addTask">Add a task</button>
     </div>
 </template>
 <script>
@@ -11,6 +11,10 @@ export default {
             taskTodoInput: ''
         }
     },
+    props: {
+        inputStyle: {required: false, type: [String, Object], default: ''}, 
+        btnStyle: {required: false, type: [String, Object], default: ''}
+    },  
 
     methods: {
       addTask() {
@@ -26,13 +30,10 @@ export default {
     border: 2px solid var(--medium-grey);
     border-radius: 2px;
     margin-right: 8px;
-    height: 2rem;
-    width: 35%;
 }
 .add-button {
     margin-left: 8px;
     font-weight: bold;
     border-radius: 5px;
-    height: 2rem;
 }
 </style>

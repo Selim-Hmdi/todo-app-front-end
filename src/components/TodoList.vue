@@ -1,7 +1,7 @@
 <template>
     <div>
-        <ul>
-            <li v-for="task in tasksTodo" :key="task.id">
+        <ul class="todo-list">
+            <li class="items" v-for="task in tasksTodo" :key="task.id">
                 <TodoItem :task="task.task"  />
             </li>            
         </ul>
@@ -21,5 +21,12 @@ export default {
 }
 </script>
 <style scoped>
-    
+.todo-list {
+    list-style: none;
+    flex: 1 1 auto;
+}
+
+.items {
+    margin-bottom: 12px;
+}
 </style>
