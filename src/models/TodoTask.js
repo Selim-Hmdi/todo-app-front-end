@@ -1,6 +1,6 @@
 export default class TodoTask {
 
-    constructor(id = null, task = "") {
+    constructor(task = "", id = null) {
         this.id = id
         this.task = task
     }

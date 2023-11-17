@@ -1,6 +1,6 @@
 import { test, expect } from "vitest"
 import { mount } from "@vue/test-utils"
-import TodoInput from "../src/components/TodoInput.vue"
+import TodoInput from "../../src/components/TodoInput.vue"
 
 test("Add an item reset input's content and emit the added task", () => {
     const wrapper = mount(TodoInput)

@@ -1,8 +1,8 @@
 <template>
     <div>
         <ul class="todo-list">
-            <li class="items" v-for="task in tasksTodo" :key="task.id">
-                <TodoItem :task="task.task"  />
+            <li class="items" v-for="task in todoTaskList" :key="task.id">
+                <TodoItem :todo-task="task"  />
             </li>            
         </ul>
     </div>
@@ -12,7 +12,7 @@ import TodoItem from './TodoItem.vue';
 
 export default {
     props: {
-        tasksTodo: {type: Array, required: true},
+        todoTaskList: {type: Array, required: false},
     },
 
     components: {

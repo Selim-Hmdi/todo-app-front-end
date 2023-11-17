@@ -1,18 +1,18 @@
 <template>
-    <div class="task-container" data-test="task" v-if="taskTrimmed !== ''">
-        <div class="task"> {{ task }} </div>
-        <i class="gg-trash"></i>
+    <div class="task-container" data-test="todoTask" v-if="taskTrimmed !== ''">
+        <div class="task"> {{ todoTask.task }} </div>
+        <i class="gg-trash" @click="$emit('onDelete', todoTask.id)"></i>
     </div>
 </template>
 <script>
 export default {
     props: {
-        task: {type: String, default: ""},
+        todoTask: {type: Object, required: true},
     },
 
     computed: {
         taskTrimmed() {
-            return this.task.trim()
+            return this.todoTask.task.trim()
         }
     }
 }

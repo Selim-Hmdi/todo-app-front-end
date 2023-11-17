@@ -1,14 +1,14 @@
 <template>
     <div>
-        <input class="task-todo-input" :style="inputStyle" v-model="taskTodoInput" type="text" name="task-todo-input" id="todo-input">
-        <button class="add-button" :style="btnStyle" @click="addTask">Add a task</button>
+        <input class="task-todo-input" :style="inputStyle" v-model="todoTaskInput" type="text" name="todo-task-input" id="todo-task-input">
+        <button class="add-button" :style="btnStyle" @click.prevent="addTask">Add a task</button>
     </div>
 </template>
 <script>
 export default {
     data() {
         return {
-            taskTodoInput: ''
+            todoTaskInput: ''
         }
     },
     props: {
@@ -18,8 +18,8 @@ export default {
 
     methods: {
       addTask() {
-        this.$emit('addTask', this.taskTodoInput)
-        this.taskTodoInput = ''
+        this.$emit('addTask', this.todoTaskInput)
+        this.todoTaskInput = ''
       }  
     },
 }

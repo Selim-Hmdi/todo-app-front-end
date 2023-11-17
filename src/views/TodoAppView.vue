@@ -6,7 +6,7 @@
             :btn-style="btnStyle"  @add-task="addTask"/>
         <TodoList 
             class="todo-list"
-            :tasks-todo="todoList" />
+            :todoTaskList="todoList" />
     </main>
 </template>
  
@@ -28,7 +28,7 @@ export default {
         }
     },
 
-    mounted() {
+    beforeMount() {
         fetch("http://localhost:8080/todo-task/", { 
                 method: "GET", 
                 mode: "cors",
@@ -47,7 +47,7 @@ export default {
         
     methods: {
         addTask(task) {
-            const taskObject = new TodoTask(null, task)
+            const taskObject = new TodoTask(task)
             fetch("http://localhost:8080/todo-task/", { 
                 method: "POST", 
                 body: JSON.stringify(taskObject),
