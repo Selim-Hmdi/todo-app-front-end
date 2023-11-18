@@ -21,9 +21,9 @@ export default {
 }
 </script>
 <style scoped>
-.todo-list {
+.todo-list { 
     list-style: none;
-    flex: 1 1 auto;
+    width: 33%;
 }
 
 .items {

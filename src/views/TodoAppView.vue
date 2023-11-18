@@ -23,7 +23,7 @@ export default {
     data() {
         return {
             todoList: [], // Array<TodoTask>
-            inputStyle: ["height: 2rem", "width: 25%"],
+            inputStyle: ["height: 2rem", "width: 20%"],
             btnStyle: ["height: 2rem"],
         }
     },
@@ -78,6 +78,8 @@ main {
 }
 
 .todo-list {
-    width: 30%;
+    display: flex;
+    justify-content: center;
+    width: 100%;
 }
 </style>
