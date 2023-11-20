@@ -5,6 +5,7 @@
             :input-style="inputStyle" 
             :btn-style="btnStyle"  @add-task="addTask"/>
         <TodoList 
+            @on-delete="deleteTask"
             class="todo-list"
             :todoTaskList="todoList" />
     </main>
@@ -60,6 +61,17 @@ export default {
                     this.todoList.push(taskObject)
                 })
                 .catch((err) => console.error("Error occured during post request at /todo-task/ -> " + err))
+        },
+
+        deleteTask(taskId) {
+            fetch(`http://localhost:8080/todo-task/${taskId}`, {
+                method: "DELETE"
+            })
+            .then(response => response.json())
+            .then(task => {
+                this.todoList = this.todoList.filter(todo => todo.id !== task.id) 
+            })
+            .catch(/*TODO : send log to server and implement user feedback like toast */)
         }
     }
 }

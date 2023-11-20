@@ -2,7 +2,7 @@
     <div>
         <ul class="todo-list">
             <li class="items" v-for="task in todoTaskList" :key="task.id">
-                <TodoItem :todo-task="task"  />
+                <TodoItem :todo-task="task" @on-delete="emitDeleteEvent" />
             </li>            
         </ul>
     </div>
@@ -17,6 +17,12 @@ export default {
 
     components: {
         TodoItem
+    },
+
+    methods: {
+        emitDeleteEvent(taskId) {
+            this.$emit('onDelete', taskId)
+        }
     }
 }
 </script>
