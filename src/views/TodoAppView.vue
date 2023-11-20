@@ -60,7 +60,7 @@ export default {
                     taskObject.id = id
                     this.todoList.push(taskObject)
                 })
-                .catch((err) => console.error("Error occured during post request at /todo-task/ -> " + err))
+                .catch((err) => console.error("Error occured during HTTP POST request at /todo-task/ : " + err))
         },
 
         deleteTask(taskId) {
@@ -71,7 +71,7 @@ export default {
             .then(task => {
                 this.todoList = this.todoList.filter(todo => todo.id !== task.id) 
             })
-            .catch(/*TODO : send log to server and implement user feedback like toast */)
+            .catch((err) => console.error("Error occured during HTTP DELETE request at url /todo-task/" + taskId + " : " + err))
         }
     }
 }
