@@ -1,7 +1,7 @@
 import { test, expect } from "vitest"
 import { mount } from "@vue/test-utils"
-import TodoList from '../../src/components/TodoList.vue'
-import TodoTask from "../../src/models/TodoTask"
+import TodoList from '@components/TodoList.vue'
+import TodoTask from "@models/TodoTask"
 
 test('Task count is the same as prop\'s number of task', () => {
     const todoList = mount(TodoList, {

@@ -1,5 +1,5 @@
 <script>
-import TodoAppView from './views/TodoAppView.vue';
+import TodoAppView from '@views/TodoAppView.vue';
 import TodoAppLayout from './layout/TodoAppLayout.vue';
 
 export default {

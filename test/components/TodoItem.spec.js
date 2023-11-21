@@ -1,7 +1,7 @@
 import { test, expect } from "vitest"
 import { mount } from "@vue/test-utils"
-import TodoItem from '../../src/components/TodoItem.vue'
-import TodoTask from '../../src/models/TodoTask'
+import TodoItem from '@components/TodoItem.vue'
+import TodoTask from '@models/TodoTask'
 
 test('Render element if non empty task', () => {
     const wrapper = mount(TodoItem, {
