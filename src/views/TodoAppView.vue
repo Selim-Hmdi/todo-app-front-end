@@ -2,8 +2,7 @@
     <main>
         <TodoInput 
             class="todo-input"
-            :input-style="inputStyle" 
-            :btn-style="btnStyle"  @add-task="addTask"/>
+            @add-task="addTask"/>
         <TodoList 
             @on-delete="deleteTask"
             class="todo-list"
@@ -24,8 +23,6 @@ export default {
     data() {
         return {
             todoList: [], // Array<TodoTask>
-            inputStyle: ["height: 2rem", "width: 20%"],
-            btnStyle: ["height: 2rem"],
         }
     },
 
