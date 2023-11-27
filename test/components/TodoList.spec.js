@@ -23,7 +23,7 @@ test('Tasks\'s text is rendered', () => {
             new TodoTask('Third task')]
         } 
     })
-    const tasks = todoList.findAll('li')
+    const tasks = todoList.findAll('[data-test="todo-task"]')
 
     const firstTask = tasks[0]
     const secondTask = tasks[1]
