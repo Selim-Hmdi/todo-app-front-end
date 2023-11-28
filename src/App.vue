@@ -1,12 +1,12 @@
 <script>
-import TodoAppView from '@views/TodoAppView.vue';
-import TodoAppLayout from './layout/TodoAppLayout.vue';
+import TodoAppView from '@views/TodoAppView.vue'
+import TodoAppLayout from './layout/TodoAppLayout.vue'
 
 export default {
   components: {
     TodoAppLayout,
     TodoAppView
-}
+  }
 }
 </script>
 
@@ -16,6 +16,4 @@ export default {
   </TodoAppLayout>
 </template>
 
-<style scoped>
-
-</style>
+<style scoped></style>
