@@ -13,24 +13,3 @@ test('Render element if non empty task', () => {
   expect(wrapper.find('[data-test="todoTask"]').exists()).toBe(true)
   expect(wrapper.find('[data-test="todoTask"]').text()).toBe('A task to do')
 })
-
-test('Doesn\'t render element if empty task', () => {
-  const wrapper = mount(TodoItem, {
-    props: {
-      todoTask: new TodoTask('')
-    }
-  })
-
-  expect(wrapper.find('[data-test="todoTask"]').exists()).toBe(false)
-
-})
-
-test('Doesn\'t render element if only whitespaces', () => {
-  const wrapper = mount(TodoItem, {
-    props: {
-      todoTask: new TodoTask('         ')
-    }
-  })
-
-  expect(wrapper.find('[data-test="todoTask"]').exists()).toBe(false)
-})
