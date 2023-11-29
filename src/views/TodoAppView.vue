@@ -44,6 +44,8 @@ export default {
 
   methods: {
     addTask(task) {
+      if(task.trim() === '') return
+
       const taskObject = new TodoTask(task)
       fetch('http://localhost:8080/todo-task/', {
         method: 'POST',
