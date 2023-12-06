@@ -10,6 +10,7 @@
     @dragenter.prevent
   >
     <div class="task">{{ todo.task }}</div>
+    <i class="gg-pen"></i>
     <i class="gg-trash" @click="$emit('onDelete', todo.id)"></i>
   </div>
 </template>
@@ -35,16 +36,22 @@ export default {
   display: grid;
   border: 1px solid rgb(77, 77, 77);
   padding: 6px;
-  grid-template-columns: 10fr 1fr;
+  grid-template-columns: 12fr 1fr 1fr;
 }
 
 .task {
   font-size: 1.4rem;
-  grid-column: 1 / 1;
+  grid-column: 1;
 }
 
 .gg-trash {
-  grid-column: 2 / 2;
+  grid-column: 3;
+  margin: auto;
+  cursor: pointer;
+}
+
+.gg-pen {
+  grid-column: 2;
   margin: auto;
   cursor: pointer;
 }

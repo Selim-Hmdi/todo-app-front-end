@@ -1,2 +1,6 @@
 /* Icons used in the project come from https://css.gg */
+
+/* Trash icon */
 @import url('https://unpkg.com/css.gg@2.0.0/icons/css/trash.css');
+/* Notes icon */
+@import url('https://unpkg.com/css.gg@2.0.0/icons/css/pen.css');

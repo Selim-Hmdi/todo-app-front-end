@@ -43,7 +43,7 @@ export default {
 <style scoped>
 .todo-list {
   list-style: none;
-  width: 33%;
+  width: 28%;
 }
 
 .items {
