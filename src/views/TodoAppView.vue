@@ -1,7 +1,7 @@
 <template>
   <main>
-    <TodoInput class="todo-input" @add-task="addTask" />
-    <TodoList id="todo-list" @on-delete="deleteTask" class="todo-list" :todoTaskList="todoList" @on-drag-start="dragStartHandler" @on-drop="dropHandler" />
+    <TodoInput class="todo-input" @add-todo="addTodo" />
+    <TodoList id="todo-list" @on-delete="deleteTodo" class="todo-list" :todoList="todoList" @on-drag-start="dragStartHandler" @on-drop="dropHandler" />
   </main>
 </template>
 
@@ -34,46 +34,46 @@ export default {
       .then((response) => {
         return response.json()
       })
-      .then((savedTasks) => {
-        for (const task of savedTasks) {
-          this.todoList.push(task)
+      .then((savedTodos) => {
+        for (const todo of savedTodos) {
+          this.todoList.push(todo)
         }
       })
       .catch((err) => console.error('Error occured during post request at /todo-task/ -> ' + err))
   },
 
   methods: {
-    addTask(task) {
-      if(task.trim() === '') return
+    addTodo(todo) {
+      if(todo.trim() === '') return
 
-      const taskObject = new TodoTask(task)
+      const todoObject = new TodoTask(todo)
       fetch('http://localhost:8080/todo-task/', {
         method: 'POST',
-        body: JSON.stringify(taskObject),
+        body: JSON.stringify(todoObject),
         mode: 'cors',
         headers: { 'Content-type': 'application/json' }
       })
         .then((response) => response.json())
         .then((id) => {
-          taskObject.id = id
-          this.todoList.push(taskObject)
+          todoObject.id = id
+          this.todoList.push(todoObject)
         })
         .catch((err) =>
           console.error('Error occured during HTTP POST request at /todo-task/ : ' + err)
         )
     },
 
-    deleteTask(taskId) {
-      fetch(`http://localhost:8080/todo-task/${taskId}`, {
+    deleteTodo(todoId) {
+      fetch(`http://localhost:8080/todo-task/${todoId}`, {
         method: 'DELETE'
       })
         .then((response) => response.json())
-        .then((task) => {
-          this.todoList = this.todoList.filter((todo) => todo.id !== task.id)
+        .then((todoRecieved) => {
+          this.todoList = this.todoList.filter((todo) => todoRecieved.id !== todo.id)
         })
         .catch((err) =>
           console.error(
-            'Error occured during HTTP DELETE request at url /todo-task/' + taskId + ' : ' + err
+            'Error occured during HTTP DELETE request at url /todo-task/' + todoId + ' : ' + err
           )
         )
     },

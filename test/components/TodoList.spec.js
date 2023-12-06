@@ -6,7 +6,7 @@ import TodoTask from "@models/TodoTask"
 test('Task count is the same as prop\'s number of task', () => {
   const todoList = mount(TodoList, {
     props: {
-      todoTaskList: [new TodoTask('First task'),
+      todoList: [new TodoTask('First task'),
         new TodoTask('Second task'),
         new TodoTask('Third task')]
     }
@@ -18,12 +18,12 @@ test('Task count is the same as prop\'s number of task', () => {
 test('Tasks\'s text is rendered', () => {
   const todoList = mount(TodoList, {
     props: {
-      todoTaskList: [new TodoTask('First task'),
+      todoList: [new TodoTask('First task'),
         new TodoTask('Second task'),
         new TodoTask('Third task')]
     }
   })
-  const tasks = todoList.findAll('[data-test="todo-task"]')
+  const tasks = todoList.findAll('[data-test="todo-item"]')
 
   const firstTask = tasks[0]
   const secondTask = tasks[1]

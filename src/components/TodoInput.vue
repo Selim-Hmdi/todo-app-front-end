@@ -1,14 +1,14 @@
 <template>
   <div>
     <input
-      class="task-todo-input"
+      class="input"
       data-test="todo-input"
-      v-model="todoTaskInput"
+      v-model="todoInput"
       type="text"
-      name="todo-task-input"
-      id="todo-task-input"
+      name="todo-input"
+      id="todo-input"
     />
-    <button class="add-button" data-test="add-task-button" @click.prevent="addTask">
+    <button class="add-button" data-test="add-button" @click.prevent="addTodo">
       Add a task
     </button>
   </div>
@@ -17,19 +17,19 @@
 export default {
   data() {
     return {
-      todoTaskInput: ''
+      todoInput: ''
     }
   },
   methods: {
-    addTask() {
-      this.$emit('addTask', this.todoTaskInput)
-      this.todoTaskInput = ''
+    addTodo() {
+      this.$emit('addTodo', this.todoInput)
+      this.todoInput = ''
     }
   }
 }
 </script>
 <style scoped>
-.task-todo-input {
+.input {
   width: 20%;
   height: 2rem;
   border: none;

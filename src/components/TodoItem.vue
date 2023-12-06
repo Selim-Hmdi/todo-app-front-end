@@ -1,37 +1,37 @@
 <template>
   <div
-    :id="'todo_' + todoTask.id"
-    class="task-container"
+    :id="'todo_' + todo.id"
+    class="item-container"
     draggable="true"
     @drop="drop"
     @dragstart="dragStart"
-    data-test="todoTask"
+    data-test="todo-item"
     @dragover.prevent
     @dragenter.prevent
   >
-    <div class="task">{{ todoTask.task }}</div>
-    <i class="gg-trash" @click="$emit('onDelete', todoTask.id)"></i>
+    <div class="task">{{ todo.task }}</div>
+    <i class="gg-trash" @click="$emit('onDelete', todo.id)"></i>
   </div>
 </template>
 <script>
 export default {
   props: {
-    todoTask: { type: Object, required: true }
+    todo: { type: Object, required: true }
   },
 
   methods: {
     dragStart() {
-      this.$emit('onDragStart', this.todoTask)
+      this.$emit('onDragStart', this.todo)
     },
 
     drop() {
-      this.$emit('onDrop', this.todoTask)
+      this.$emit('onDrop', this.todo)
     }
   }
 }
 </script>
 <style scoped>
-.task-container {
+.item-container {
   display: grid;
   border: 1px solid rgb(77, 77, 77);
   padding: 6px;

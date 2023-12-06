@@ -1,10 +1,10 @@
 <template>
   <div>
     <ul class="todo-list">
-      <li class="items" v-for="(task, index) in todoTaskList" :key="index">
+      <li class="items" v-for="(todo, index) in todoList" :key="index">
         <TodoItem
-          data-test="todo-task"
-          :todo-task="task"
+          data-test="todo-item"
+          :todo="todo"
           @on-delete="emitDeleteEvent"
           @on-drag-start="dragStartHandler"
           @on-drop="dropHandler"
@@ -18,7 +18,7 @@ import TodoItem from '@components/TodoItem.vue'
 
 export default {
   props: {
-    todoTaskList: { type: Array, required: false }
+    todoList: { type: Array, required: false }
   },
 
   components: {
