@@ -5,6 +5,7 @@
         <TodoItem
           data-test="todo-item"
           :todo="todo"
+          @open-edit-todo-modal="emitOpenEditTodoModal"
           @on-delete="emitDeleteEvent"
           @on-drag-start="dragStartHandler"
           @on-drop="dropHandler"
@@ -28,6 +29,10 @@ export default {
   methods: {
     emitDeleteEvent(taskId) {
       this.$emit('onDelete', taskId)
+    },
+
+    emitOpenEditTodoModal(todo) {
+      this.$emit('openEditTodoModal', todo)
     },
 
     dragStartHandler(todoDragged) {

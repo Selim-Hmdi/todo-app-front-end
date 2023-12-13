@@ -1,7 +1,12 @@
 <template>
   <main>
+    <EditTodoModal hidden id="edit-modal" class="edit-modal" @edit-todo="editTodo"></EditTodoModal>
     <TodoInput class="todo-input" @add-todo="addTodo" />
-    <TodoList id="todo-list" @on-delete="deleteTodo" class="todo-list" :todoList="todoList" @on-drag-start="dragStartHandler" @on-drop="dropHandler" />
+    <TodoList id="todo-list" class="todo-list" :todoList="todoList"
+      @open-edit-todo-modal="openEditTodoModal"
+      @on-delete="deleteTodo"
+      @on-drag-start="dragStartHandler"
+      @on-drop="dropHandler" />
   </main>
 </template>
 
@@ -9,11 +14,13 @@
 import TodoInput from '@components/TodoInput.vue'
 import TodoList from '@components/TodoList.vue'
 import TodoTask from '@models/TodoTask.js'
+import EditTodoModal from '../components/EditTodoModal.vue'
 
 export default {
   components: {
     TodoInput,
-    TodoList
+    TodoList,
+    EditTodoModal,
   },
   data() {
     return {
@@ -21,7 +28,8 @@ export default {
       dragged: {
         todo: null,
         todoListIndex: -1,
-      }
+      },
+      editedTodo: null,
     }
   },
 
@@ -78,6 +86,36 @@ export default {
         )
     },
 
+    editTodo(newTodoTask) {
+      this.todoList.find((todo) => todo.id === this.editedTodo.id).task = newTodoTask
+      fetch(`http://localhost:8080/todo-task/${this.editedTodo.id}`,
+        {
+          method: "PUT",
+          body: JSON.stringify(this.editedTodo),
+          mode: 'cors',
+          headers: { 'Content-type': 'application/json' }
+        }
+      )
+        .catch((err) => {
+          console.error(`Error occured during HTTP PUT request at /todo-task/${this.editedTodo.id}  failed with the following error : ${err}`)
+        })
+      this.closeEditTodoModal()
+    },
+
+    openEditTodoModal(todo) {
+      const editModal = document.getElementById('edit-modal')
+      editModal.hidden = false
+      this.editedTodo = todo
+    },
+
+    closeEditTodoModal() {
+      const editModal = document.getElementById('edit-modal')
+      editModal.hidden = true
+      this.editedTodo = null
+    },
+
+
+
     dragStartHandler(todoDragged) {
       this.dragged.todo = todoDragged
       this.dragged.todoListIndex = this.todoList.findIndex(currentTodo => todoDragged.id === currentTodo.id)
@@ -86,7 +124,7 @@ export default {
     dropHandler(targetTodo) {
       const targetIndex = this.todoList.findIndex(currentTodo => targetTodo.id === currentTodo.id)
       if(targetIndex === -1)
-        console.error("Drop failed due to unexpected behavior : the target drop id was not found")
+        console.error('Drop failed due to unexpected behavior : the target drop id was not found')
 
       this.todoList[targetIndex] = this.dragged.todo
       this.todoList[this.dragged.todoListIndex] = targetTodo
@@ -112,5 +150,15 @@ main {
   display: flex;
   justify-content: center;
   width: 100%;
+}
+
+.edit-modal {
+  width: 33%;
+  height: 37%;
+}
+
+/* Toggle class when opening and closing modal to make background transparent effect | NOT USED YET */
+.obscure-background {
+  background-color: rgba(0, 0, 0, 0.5)
 }
 </style>

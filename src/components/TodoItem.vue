@@ -10,8 +10,8 @@
     @dragenter.prevent
   >
     <div class="task">{{ todo.task }}</div>
-    <i class="gg-pen"></i>
-    <i class="gg-trash" @click="$emit('onDelete', todo.id)"></i>
+    <div class="gg-pen" @click="$emit('openEditTodoModal', todo)"></div>
+    <div class="gg-trash" @click="$emit('onDelete', todo.id)"></div>
   </div>
 </template>
 <script>
