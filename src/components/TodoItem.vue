@@ -34,7 +34,7 @@ export default {
 <style scoped>
 .item-container {
   display: grid;
-  border: 1px solid rgb(77, 77, 77);
+  background-color: rgba(0, 0, 0, 0.30);
   padding: 6px;
   grid-template-columns: 12fr 1fr 1fr;
 }
@@ -52,7 +52,7 @@ export default {
 
 .gg-pen {
   grid-column: 2;
-  margin: auto;
+  margin-top: 8px;
   cursor: pointer;
 }
 </style>
