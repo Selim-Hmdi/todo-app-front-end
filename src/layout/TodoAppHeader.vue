@@ -9,5 +9,8 @@ export default {}
 <style scoped>
 .app-title {
   text-align: center;
+  width: 100%;
+  font-size: 2.5rem;
+  margin-bottom: 3rem;
 }
 </style>
