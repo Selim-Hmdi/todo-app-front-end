@@ -13,8 +13,7 @@ export default {
 
 .modal {
     position: fixed;
-    background-color: rgb(105, 105, 105);
-    color: white;
+    background-color: var(--modal-bg);
     z-index: 10;
 }
 </style>

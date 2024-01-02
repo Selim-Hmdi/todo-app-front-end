@@ -32,15 +32,14 @@ export default {
 .input {
   width: 20%;
   height: 2rem;
-  border: none;
-  border: 2px solid var(--medium-grey);
+  border: 2px solid var(--dark-grey);
   border-radius: 2px;
   margin-right: 8px;
 }
 .add-button {
-  height: 2rem;
+  width: 120px;
+  height: 2.2rem;
   margin-left: 8px;
-  font-weight: bold;
-  border-radius: 5px;
+  border-radius: 2px;
 }
 </style>

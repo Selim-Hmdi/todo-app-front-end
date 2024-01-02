@@ -1,3 +1,6 @@
 :root {
   --medium-grey: #b1b1b1;
+  --dark-grey: #6b6b6b;
+  --todo-done-bg: #2ab300;
+  --modal-bg: #afafaf;
 }

@@ -1,7 +1,7 @@
 <template>
     <ModalContainer class="modal-position">
         <div class="modal-content">
-            <section class="header">
+            <section>
                 <h2 class="modal-title">Edit your item</h2>
                 <div class="close-modal" @click="closeModal">X</div>
             </section>
@@ -44,16 +44,19 @@ export default {
 }
 
 .modal-content {
+    height: 100%;
     display: flex;
     flex-direction: column;
 }
-.header {
-    display: flex;
+
+.modal-content > section {
+  display: flex;
 }
 
 .modal-title {
-    flex: 9;
+    flex: 10;
     text-align: center;
+    font-size: 1.7rem;
 }
 
 .close-modal {
@@ -64,15 +67,23 @@ export default {
     font-weight: bold;
     font-size: 28px;
     cursor: pointer;
-    background-color: rgb(54, 54, 54);
     color: rgb(0, 0, 0);
 }
 
 .modal-input-section {
-    display: flex;
-    margin-top: auto;
-    margin-bottom: auto;
     justify-content: center;
+    margin-top: 7%;
 }
 
+.modal-input-section > input{
+  width: 70%;
+  height: 2.2rem;
+  border: 2px solid var(--dark-grey);
+  border-radius: 2px;
+  margin-right: 8px;
+}
+
+.modal-input-section > button {
+  width: 110px;
+}
 </style>
