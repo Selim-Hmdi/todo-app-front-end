@@ -1,6 +1,7 @@
 export default class TodoTask {
-  constructor(task = '', id = null) {
+  constructor(task = '',  id = null) {
     this.id = id
     this.task = task
+    this.publishedDate = Date.now()
   }
 }
